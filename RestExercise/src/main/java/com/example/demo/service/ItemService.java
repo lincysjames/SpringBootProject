@@ -5,6 +5,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.entity.Item;
@@ -13,10 +14,12 @@ import com.example.demo.repository.ItemRepository;
 
 	@Service
 	public class ItemService {
-		private ItemRepository repository;
+		@Autowired private ItemRepository repository;
 		
 		public Item saveItem(Item item) {
+		
 			return repository.save(item);
+		
 		}
 	
 		public List<Item> saveItems(List<Item> item) {
@@ -30,6 +33,7 @@ import com.example.demo.repository.ItemRepository;
 		//get items by ids
 		public List<Item> getItemsByIds(List<Integer> ids) {
 			return repository.findAllById(ids);
+			//return repository.findByItemsIds(ids);
 		}
 		//get all items
 		public List<Item> getItems() {

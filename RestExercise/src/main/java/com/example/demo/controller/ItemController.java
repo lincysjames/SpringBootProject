@@ -25,19 +25,19 @@ public class ItemController {
 	public List<Item> addItems(@RequestBody List<Item> items) {
 		return service.saveItems(items);
 	}
-	@GetMapping("/item")
-	public Item findItemById(@RequestBody int itemid) {
+	@GetMapping("/item/{itemid}")
+	public Item findItemById(@PathVariable int itemid) {
 		return service.getItemById(itemid);
 	}
 	@GetMapping("/items")
 	public List<Item> findAllItems(){
 		return service.getItems();
 	}
-	@GetMapping("/itemsByIds")
-	public List<Item> findAllItemsById(@RequestBody List<Integer> ids){
+	@GetMapping("/itemsByIds/{ids}")
+	public List<Item> findAllItemsById(@PathVariable List<Integer> ids){
 		return service.getItemsByIds(ids);
 	}
-	@DeleteMapping("/delete/{id}")
+	@DeleteMapping("/delete/{itemid}")
 	public String deleteItem(@PathVariable int itemid) {
 		return service.deleteItem(itemid);
 	}
