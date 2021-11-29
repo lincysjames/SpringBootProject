@@ -40,7 +40,7 @@ import com.example.demo.repository.ItemRepository;
 			
 			List<Item> item = repository.findAll();
 			//sort by highest price
-			List<Item> sortedlist = item.stream().sorted(Comparator.comparingDouble(Item::getPrice).reversed()).collect(Collectors.toList());
+			List<Item> sortedlist = item.stream().sorted(Comparator.comparing(Item::getPrice).reversed()).collect(Collectors.toList());
 			return sortedlist;
 		}
 		//delete by id

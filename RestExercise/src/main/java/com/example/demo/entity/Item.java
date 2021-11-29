@@ -1,5 +1,7 @@
 package com.example.demo.entity;
-	import javax.persistence.Entity;
+	import java.math.BigDecimal;
+
+import javax.persistence.Entity;
 	import javax.persistence.GeneratedValue;
 	import javax.persistence.Id;
 	import javax.persistence.Table;
@@ -22,7 +24,7 @@ package com.example.demo.entity;
 
 		private int itemid;
 		private String description;
-		private double price;
+		private BigDecimal price;
 		private String brand;
 		public int getItemid() {
 			return itemid;
@@ -36,10 +38,10 @@ package com.example.demo.entity;
 		public void setDescription(String description) {
 			this.description = description;
 		}
-		public double getPrice() {
+		public BigDecimal getPrice() {
 			return price;
 		}
-		public void setPrice(double price) {
+		public void setPrice(BigDecimal price) {
 			this.price = price;
 		}
 		public String getBrand() {

@@ -17,26 +17,32 @@ import com.example.demo.service.ItemService;
 public class ItemController {
 	@Autowired
 	private ItemService service;
+
 	@PostMapping("/addItem")
 	public Item addItem(@RequestBody Item item) {
 		return service.saveItem(item);
 	}
+
 	@PostMapping("/addItems")
 	public List<Item> addItems(@RequestBody List<Item> items) {
 		return service.saveItems(items);
 	}
+
 	@GetMapping("/item/{itemid}")
 	public Item findItemById(@PathVariable int itemid) {
 		return service.getItemById(itemid);
 	}
+
 	@GetMapping("/items")
-	public List<Item> findAllItems(){
+	public List<Item> findAllItems() {
 		return service.getItems();
 	}
+
 	@GetMapping("/itemsByIds/{ids}")
-	public List<Item> findAllItemsById(@PathVariable List<Integer> ids){
+	public List<Item> findAllItemsById(@PathVariable List<Integer> ids) {
 		return service.getItemsByIds(ids);
 	}
+
 	@DeleteMapping("/delete/{itemid}")
 	public String deleteItem(@PathVariable int itemid) {
 		return service.deleteItem(itemid);
