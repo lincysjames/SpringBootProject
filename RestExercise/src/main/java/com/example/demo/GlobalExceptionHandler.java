@@ -22,7 +22,7 @@ public class GlobalExceptionHandler{
      {
            ApiError error = new ApiError();
            error.setException("Exception: " + e.getMessage());
-           HttpStatus status = HttpStatus.INTERNAL_SERVER_ERROR;
+           HttpStatus status = HttpStatus.BAD_REQUEST;
            return new ResponseEntity<ApiError>(error, status);
      }
 }
